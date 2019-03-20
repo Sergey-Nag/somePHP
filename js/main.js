@@ -36,10 +36,6 @@ $(document).ready(function () {
     allowRegButton();
   });
 
-  //  $('#registerSubmit').click(function (e) {
-  //    sendQuery($('#registerForm'));
-  //  });
-  
   $('form#registerForm').on('submit',function (e) {
     e.preventDefault();
     let data = $(this).serialize();
@@ -48,7 +44,6 @@ $(document).ready(function () {
       url: 'query/datab.php',
       data: 'for=register&' + data,
       success: function (res, stat) {
-        console.log(res)
         if (res == 'done') {
           $('#loginRegister').fadeOut(500,function(){
             $('#loginedRegistered').fadeIn(350);
@@ -76,10 +71,8 @@ function correctConfirmNickName(reg, txt, input) {
       url: 'query/datab.php',
       data: 'for=check&from=users-mydb&get=Nickname&search=' + txt,
       success: function (res, stat) {
-        console.log(res)
         if (res == 'false') input.addClass('correct');
         else input.removeClass('correct');
-        
       },
       beforeSend: function (data) {
         input.removeClass('correct');

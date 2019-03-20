@@ -1,0 +1,11 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --c-bg: #bee2e5;
+  --c-nav: #68a3e6;
+  --c-txt-nav: #e0ffff;
+}

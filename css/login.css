@@ -1,0 +1,14 @@
+body {
+  font-size: 15px;
+  font-family: sans-serif;
+  background: var(--c-bg);
+}
+
+header span {
+  text-transform: uppercase;
+  color: var(--c-txt-nav);
+}
+
+.form-control.correct {
+  border-color: var(--success);
+}

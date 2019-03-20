@@ -22,8 +22,8 @@
             <input type="password" class="form-control" name="password" id="pass" placeholder="Password">
           </div>
           <div class="form-group form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" name="checkbox" for="exampleCheck1">Check me out</label>
+            <input type="checkbox" name="checkThisShit" class="form-check-input" id="checkThisShit">
+            <label class="form-check-label"  for="checkThisShit">Check me out</label>
           </div>
           <input type="submit" class="btn btn-primary" value="Login">
         </form>

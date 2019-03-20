@@ -62,11 +62,11 @@ $(document).ready(function () {
       data: 'for=login&' + data,
       success: function (res, stat) {
         console.log(res)
-        // if (res == 'done') {
-        //   $('#loginRegister').fadeOut(500,function(){
-        //     $('#loginedRegistered').fadeIn(350);
-        //   });
-        // }
+        if (res == 'confirm') {
+          $('#loginRegister').fadeOut(500,function(){
+            $('#loginedRegistered').fadeIn(350);
+          });
+        }
       }
     });
 

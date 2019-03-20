@@ -12,7 +12,7 @@ if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
   <nav class="navbar shadow justify-content-center navbar-dark bg-primary">
     <span class="navbar-text">
       Hello
-      <? echo (!empty($ip))? $ip: 'boy'; ?>
+      <? echo (!empty($_SESSION['username']))? $_SESSION['username']: $ip; ?>
       <i class="far fa-laugh"></i>
     </span>
   </nav>

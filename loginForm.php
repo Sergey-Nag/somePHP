@@ -2,14 +2,14 @@
   <div id="loginRegister" class="mx-auto" style="width: 45vw">
     <ul class="nav nav-tabs" id="list-tab" role="tablist">
       <li class="nav-item">
-        <a class="nav-link" id="list-login-list" data-toggle="list" href="#list-login" role="tab" aria-controls="home">login</a>
+        <a class="nav-link active" id="list-login-list" data-toggle="list" href="#list-login" role="tab" aria-controls="home">login</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link active" id="list-reg-list" data-toggle="list" href="#list-reg" role="tab" aria-controls="profile">Register</a>
+        <a class="nav-link " id="list-reg-list" data-toggle="list" href="#list-reg" role="tab" aria-controls="profile">Register</a>
       </li>
     </ul>
     <div class="card p-4 tab-content" id="nav-tabContent">
-      <div class="tab-pane fade" id="list-login" role="tabpanel" aria-labelledby="list-login-list">
+      <div class="tab-pane fade show active" id="list-login" role="tabpanel" aria-labelledby="list-login-list">
 
         <form>
           <div class="form-group">
@@ -29,7 +29,7 @@
         </form>
 
       </div>
-      <div class="tab-pane fade show active" id="list-reg" role="tabpanel" aria-labelledby="list-reg-list">
+      <div class="tab-pane fade" id="list-reg" role="tabpanel" aria-labelledby="list-reg-list">
 
         <form id="registerForm" name="register">
           <div class="form-group">

@@ -8,7 +8,6 @@ if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
     $ip = $_SERVER['REMOTE_ADDR'];
   }
 ?>
-<header class="fixed-top">
 
   <nav class="navbar shadow justify-content-center navbar-dark bg-primary">
     <span class="navbar-text">
@@ -17,5 +16,3 @@ if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
       <i class="far fa-laugh"></i>
     </span>
   </nav>
-
-</header>

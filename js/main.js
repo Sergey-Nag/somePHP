@@ -53,6 +53,25 @@ $(document).ready(function () {
     });
   });
 
+  $('form#loginForm').on('submit',function (e) {
+    e.preventDefault();
+    let data = $(this).serialize();
+    $.ajax({
+      type: 'POST',
+      url: 'query/datab.php',
+      data: 'for=login&' + data,
+      success: function (res, stat) {
+        console.log(res)
+        // if (res == 'done') {
+        //   $('#loginRegister').fadeOut(500,function(){
+        //     $('#loginedRegistered').fadeIn(350);
+        //   });
+        // }
+      }
+    });
+
+  });
+
 
 });
 

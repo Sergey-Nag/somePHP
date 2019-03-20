@@ -11,21 +11,21 @@
     <div class="card p-4 tab-content" id="nav-tabContent">
       <div class="tab-pane fade show active" id="list-login" role="tabpanel" aria-labelledby="list-login-list">
 
-        <form>
+        <form id="loginForm">
           <div class="form-group">
             <label for="loginEmail">Login or Email</label>
-            <input type="text" class="form-control" id="loginEmail" aria-describedby="email" placeholder="Enter login or email">
+            <input type="text" class="form-control" id="loginEmail" name="loginEmail" placeholder="Enter login or email">
             <small id="loginEmail" class="form-text text-muted">We'll never share your email with anyone else.</small>
           </div>
           <div class="form-group">
             <label for="pass">Password</label>
-            <input type="password" class="form-control" id="pass" placeholder="Password">
+            <input type="password" class="form-control" name="password" id="pass" placeholder="Password">
           </div>
           <div class="form-group form-check">
             <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            <label class="form-check-label" name="checkbox" for="exampleCheck1">Check me out</label>
           </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <input type="submit" class="btn btn-primary" value="Login">
         </form>
 
       </div>
@@ -42,8 +42,8 @@
             <input name='regName' type="text" class="form-control" id="regName" aria-describedby="name" placeholder="Enter your name">
           </div>
           <div class="form-group">
-            <label for="regNickname">Nickname</label>
-            <input name="regNickname" type="text" class="form-control" id="regNickname" aria-describedby="nickname" placeholder="Enter your nickname">
+            <label for="regNickname">Login</label>
+            <input name="regNickname" type="text" class="form-control" id="regNickname" aria-describedby="login" placeholder="Enter your login">
           </div>
           <div class="form-group">
             <label for="regPass">Password</label>

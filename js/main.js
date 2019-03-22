@@ -64,7 +64,11 @@ $(document).ready(function () {
         console.log(res)
         if (res == 'confirm') {
           $('#loginRegister').fadeOut(500,function(){
-            $('#loginedRegistered').fadeIn(350);
+            $('#loginedRegistered').fadeIn(350, function() {
+              setTimeout(()=>{
+                window.location.reload();
+              }, 300);
+            });
           });
         }
       }
@@ -72,6 +76,9 @@ $(document).ready(function () {
 
   });
 
+  $('button[data-link-q]').click(function() {
+    goToDataLinkQ($(this).attr('data-link-q'));
+  });
 
 });
 
@@ -105,4 +112,9 @@ function allowRegButton() {
   let res = $('#registerForm').find('.form-group input.correct');
   if (res.length == 5) $('#registerSubmit').attr('disabled', false);
   else $('#registerSubmit').attr('disabled', true);
+}
+
+function goToDataLinkQ(path) {
+  window.location.assign('http://somephp/admin.php'+path);
+  console.log(path)
 }

@@ -9,3 +9,16 @@
   --c-nav: #68a3e6;
   --c-txt-nav: #e0ffff;
 }
+
+#col_Pass {
+  max-width: 50px;
+}
+thead tr th:not(:first-child) {
+  min-width: 100px;
+  max-width: 350px;
+  overflow: hidden;
+}
+
+.text-green td {
+  color: var(--success);
+}

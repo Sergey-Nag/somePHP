@@ -67,31 +67,33 @@ if ($for == 'check') {
 
   if (!empty($login) && !empty($password)) {
     $res = false;
+    if (preg_match("/@/", $login)) $res = $mysqli->query("SELECT * FROM `users-mydb` WHERE `Email` LIKE '$login'");
+    else $res = $mysqli->query("SELECT * FROM `users-mydb` WHERE `Nickname` LIKE '$login'");
+    
+    if ($res !== NULL) {
+      while ($row = $res->fetch_assoc()) {
+        $pass_hash = $row['Pass'];
+        $user_id = $row['ID'];
+        $isAdmin = $row['isAdmin'];
+        $username = $row['Name'];
+        $nickname = $row['Nickname'];
+      }
 
-    if (preg_match("/@/", $login)) $res = $mysqli->query("SELECT * FROM `users-mydb` WHERE `Email` = `$login`");
-    else $res = $mysqli->query("SELECT ID, Pass, Name, Nickname FROM `users-mydb` WHERE `Nickname`='$login' LIMIT 1");
-
-    while ($row = $res->fetch_assoc()) {
-      $pass_hash = $row['Pass'];
-      $user_id = $row['ID'];
-      $username = $row['Name'];
-      $nickname = $row['Nickname'];
-    }
-
-    if (password_verify($password, $pass_hash)) {
-      if ($checkbox == 'on') {
-          session_unset();
-          session_destroy();
-          setcookie(session_name(), '', time() - 60*60*24*32, '/');
-          $answer = 'beye';
-      } else {
-        $answer = 'confirm';
-        $_SESSION['username'] = $username;
-        $_SESSION['nickname'] = $nickname;
-        $_SESSION['user_id'] = $user_id;
-    }
-
-    } else $answer = 'pass not confirm';
+      if (password_verify($password, $pass_hash)) {
+        if ($checkbox == 'on') {
+            session_unset();
+            session_destroy();
+            setcookie(session_name(), '', time() - 60*60*24*32, '/');
+            $answer = 'beye';
+        } else {
+            $answer = 'confirm';
+            $_SESSION['username'] = $username;
+            $_SESSION['nickname'] = $nickname;
+            $_SESSION['admin'] = $isAdmin;
+            $_SESSION['user_id'] = $user_id;
+        }
+      }
+    } else $answer = 'user not found';
     // $answer = $login.' '.gettype($res).' '.$res[0]['ID'].'_';
 
   } else $answer = 'login/pass is empty';

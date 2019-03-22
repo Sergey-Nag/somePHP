@@ -50,7 +50,7 @@
             <input name="regPass" type="password" class="form-control" id="regPass" placeholder="Enter password">
             <input type="password" class="form-control mt-2" id="regPass1" placeholder="Confirm password">
           </div>
-          <input id="registerSubmit" type="submit" class="btn btn-primary" value="Reg" disabled>
+          <input id="registerSubmit" type="submit" class="btn btn-primary" value="Register" disabled>
         </form>
 
       </div>

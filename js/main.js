@@ -36,7 +36,7 @@ $(document).ready(function () {
     allowRegButton();
   });
 
-  $('form#registerForm').on('submit',function (e) {
+  $('form#registerForm').on('submit', function (e) {
     e.preventDefault();
     let data = $(this).serialize();
     $.ajax({
@@ -45,15 +45,19 @@ $(document).ready(function () {
       data: 'for=register&' + data,
       success: function (res, stat) {
         if (res == 'done') {
-          $('#loginRegister').fadeOut(500,function(){
-            $('#loginedRegistered').fadeIn(350);
+          $('#loginRegister').fadeOut(500, function () {
+            $('#loginedRegistered').fadeIn(350, function () {
+              setTimeout(() => {
+                window.location.reload();
+              }, 300);
+            });
           });
         }
       }
     });
   });
 
-  $('form#loginForm').on('submit',function (e) {
+  $('form#loginForm').on('submit', function (e) {
     e.preventDefault();
     let data = $(this).serialize();
     $.ajax({
@@ -63,9 +67,9 @@ $(document).ready(function () {
       success: function (res, stat) {
         console.log(res)
         if (res == 'confirm') {
-          $('#loginRegister').fadeOut(500,function(){
-            $('#loginedRegistered').fadeIn(350, function() {
-              setTimeout(()=>{
+          $('#loginRegister').fadeOut(500, function () {
+            $('#loginedRegistered').fadeIn(350, function () {
+              setTimeout(() => {
                 window.location.reload();
               }, 300);
             });
@@ -76,7 +80,7 @@ $(document).ready(function () {
 
   });
 
-  $('button[data-link-q]').click(function() {
+  $('button[data-link-q]').click(function () {
     goToDataLinkQ($(this).attr('data-link-q'));
   });
 
@@ -115,6 +119,27 @@ function allowRegButton() {
 }
 
 function goToDataLinkQ(path) {
-  window.location.assign('http://somephp/admin.php'+path);
-  console.log(path)
+  window.location.assign('http://somephp/admin.php' + path);
+}
+
+function openUser(row) {
+  let userScetion = $('#sectionUser');
+
+  let userId = $(row).children().first().text().match(/\S+/g)[0];
+  userScetion.fadeOut(200, function () {
+    window.location.assign('http://somephp/admin.php?page=Users&userid=' + userId);
+  });
+}
+
+function backToUsers() {
+  $('#userInfo').fadeOut(200, function () {
+    window.location.assign('http://somephp/admin.php?page=Users');
+  });
+}
+
+function createPage() {
+  $('#sectionEditor').fadeOut(200, function () {
+    window.location.assign('http://somephp/admin.php?page=Editor&action=CreatePage');
+  });
+  
 }

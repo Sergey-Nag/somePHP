@@ -32,7 +32,7 @@ if ($_SERVER['PHP_SELF'] == '/index.php') {
     </div>
     <div clss="col-6">
       <div class="btn-group" role="group">
-        <button type="button" class="btn btn-outline-warning">Logout</button>
+        <a href="query/datab.php?logout=true" class="btn btn-outline-warning">Logout</a>
       </div>
     </div>
   </div>

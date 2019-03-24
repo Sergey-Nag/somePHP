@@ -33,23 +33,45 @@ thead tr th:not(:first-child) {
   background: #fff;
   border-radius: 15px;
 }
+
 #VIEW section::-webkit-scrollbar-track:hover {
   background: #f0f0f0;
 }
+
 #VIEW section::-webkit-scrollbar-thumb {
   border-radius: 15px;
   background: #f0f0f0;
 }
-#VIEW section::-webkit-scrollbar-thumb:hover {  
+
+#VIEW section::-webkit-scrollbar-thumb:hover {
   background: #cacaca;
 }
+
 .template-sample {
   display: block;
   height: 150px;
-  width: 100%;
+  width: 210px;
 }
+
 .wrapp-template {
-  width: 100%;
+  overflow: hidden;
+  border-radius: 5px;
+  width: 200px;
   height: 100%;
   background: #e3e3e3;
+}
+
+.wrapp-template {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: 1fr 2fr 2fr 1fr;
+  grid-row-gap: 4px;
+}
+
+.wrapp-template .column {
+  background: none;
+}
+
+.wrapp-template .column.bg {
+  background: #b7b7b7;
 }

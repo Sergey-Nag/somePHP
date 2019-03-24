@@ -83,6 +83,21 @@ $(document).ready(function () {
   $('button[data-link-q]').click(function () {
     goToDataLinkQ($(this).attr('data-link-q'));
   });
+  
+  $('form#createPage').on('submit', function(e){
+    e.preventDefault();
+    let data = $(this).serialize();
+    console.log(data);
+    $.ajax({
+      type: 'POST',
+      url: 'query/datab.php',
+      data: 'for=createTable&' + data,
+      success: function (res, stat) {
+        console.log(res);
+        if (res == 'done') window.location.reload()
+      }
+    })
+  });
 
 });
 

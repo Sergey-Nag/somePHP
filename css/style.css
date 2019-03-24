@@ -1,0 +1,10 @@
+.main_wrapper {
+  width: 100%;
+}
+.header-page {
+  width: 100%;
+  padding: 10px;
+}
+.sample-text {
+  color: var(--gray);
+}

@@ -18,6 +18,7 @@ $checkbox = $_POST['checkThisShit'];
 
 $logout = $_GET['logout'];
 
+
 $answer = 'false';
 
 if (isset($logout) && $logout == true) {
@@ -98,6 +99,35 @@ if ($for == 'check') {
 
   } else $answer = 'login/pass is empty';
 
+} else if ($for == 'createTable') {
+  $tName = $_POST['NamePage'];
+  $tDescr = $_POST['DescrPage'];
+  $tAllowAll = $_POST['allowAll'];
+  $tTemplate = $_POST['template'];
+  
+  if ($tName !== '' && $tTemplate !== '') {
+    if (preg_match("/[A-z]/", $tName)) {
+      if ($tTemplate == 'template1') {
+        $query = "CREATE TABLE `$tName-page`
+                  (
+                      id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+                      block VARCHAR(200) NOT NULL,
+                      classes TEXT NOT NULL,
+                      style TEXT NOT NULL,
+                      html TEXT NOT NULL
+                  )";
+      }
+      $result = $mysqli->query($query);
+      
+      if ($result) {
+        $res = $mysqli->query("INSERT INTO `$tName-page` (`id`, `block`, `classes`, `style`) VALUES (NULL, 'header', 'header-page', '{}', ''), (NULL, 'main', 'main-page', '{}', ''), (NULL, 'footer', 'footer-page', '{}', '')");
+        
+        $answer = ($res)? 'done':'error insert';
+        
+      } else $answer = 'error creating';
+      
+    } else $answer = 'name';
+  }
 }
 
 echo $answer;

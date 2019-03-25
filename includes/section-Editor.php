@@ -93,8 +93,8 @@ $PAGE = $mysqli->query("SELECT * FROM `$pageForEdit`");
   <? if ($PAGE->num_rows !== 0) {; ?>
 
   <div class="header-wrapp row pt-1 mx-0">
-    <div class="col-12 p-0">
-      <div class="btn-group btn-group-sm" role="group" aria-label="Button group with nested dropdown">
+    <div class="col-9 p-0">
+      <div class="btn-group btn-group-sm" role="group">
         <div class="btn-group btn-group-sm" role="group">
           <button id="btnGroupDrop1" type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Блок
@@ -116,7 +116,7 @@ $PAGE = $mysqli->query("SELECT * FROM `$pageForEdit`");
             <a class="dropdown-item" href="#">U</a>
           </div>
         </div>
-<!--
+        <!--
         <button type="button" class="btn btn-success">1</button>
         <button type="button" class="btn btn-success">2</button>
 -->
@@ -124,9 +124,24 @@ $PAGE = $mysqli->query("SELECT * FROM `$pageForEdit`");
 
       </div>
     </div>
+    <div class="col-3 p-0">
+      <div class="btn-group btn-group-sm float-right" role="group">
+        <button type="button" class="btn btn-outline-primary"><i class="far fa-save"></i> Сохранить</button>
+        <button type="button" class="btn btn-primary"><i class="fas fa-sync"></i> Обновить</button>     
+      </div>
+    </div>
   </div>
   <div class="pageView w-100" id="pageView">
     <? $DrawPage->inEditor($PAGE); ?>
+<!--
+    <div class="controls-item" data-p="asd">
+      <div class="butts-wrapp text-center" data-p="asd">
+        <button class="btn btn-sm p-1 px-3 btn-success" title="Edit text"><i class="far fa-file-alt"></i></button>
+        <button class="btn btn-sm p-1 px-3 btn-success" title="Edit styles"><i class="far fa-edit"></i></button>
+        <button class="btn btn-sm p-1 px-3 btn-success" title="Edit indents"><i class="fas fa-compress"></i></button>
+      </div>
+    </div>
+-->
   </div>
 
 

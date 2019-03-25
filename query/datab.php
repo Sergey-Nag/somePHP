@@ -120,9 +120,14 @@ if ($for == 'check') {
       $result = $mysqli->query($query);
       
       if ($result) {
-        $res = $mysqli->query("INSERT INTO `$tName-page` (`id`, `block`, `classes`, `style`) VALUES (NULL, 'header', 'header-page', '{}', ''), (NULL, 'main', 'main-page', '{}', ''), (NULL, 'footer', 'footer-page', '{}', '')");
+        $res = $mysqli->query("INSERT INTO `$tName-page` (`id`, `block`, `classes`, `style`, `html`) VALUES (NULL, 'header', 'header-page', '{}', NULL), (NULL, 'main', 'main-page', '{}', NULL), (NULL, 'footer', 'footer-page', '{}', NULL)");
         
-        $answer = ($res)? 'done':'error insert';
+        if ($res) {
+          $answer = 'done';
+        } else {
+          $mysqli->query("DROP TABLE `$tName-page`");
+          $answer = 'error insert';
+        }
         
       } else $answer = 'error creating';
       

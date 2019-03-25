@@ -52,7 +52,7 @@ $(document).ready(function () {
               }, 300);
             });
           });
-        }
+        }else showError(res);
       }
     });
   });
@@ -74,7 +74,7 @@ $(document).ready(function () {
               }, 300);
             });
           });
-        }
+        }else showError(res);
       }
     });
 
@@ -95,10 +95,10 @@ $(document).ready(function () {
       success: function (res, stat) {
         console.log(res);
         if (res == 'done') window.location.reload()
+        else showError(res);
       }
     })
   });
-
 });
 
 
@@ -157,4 +157,10 @@ function createPage() {
     window.location.assign('http://somephp/admin.php?page=Editor&action=CreatePage');
   });
   
+}
+
+function showError(errText) {
+  $('#errorBlock').modal('show');
+  $('#errorBlock #textError').text(errText);
+  $('#hideError').click(()=>$('#errorBlock').modal('hide'))
 }
